@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Câmera & Luz · Prompts de movimento e fotografia publicitária</title>
+  <meta name="description" content="Biblioteca gratuita em português com 46 movimentos de câmera, técnicas de luz de fotografia publicitária e editorial e um construtor de prompts para Kling, Runway, Higgsfield, Seedance, Midjourney e outras IAs." />
+  <meta property="og:title" content="Câmera & Luz · Prompts para vídeo e foto com IA" />
+  <meta property="og:description" content="46 movimentos de câmera + técnicas de luz de estúdio, com prompts prontos para copiar." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0d0c0b" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d0c0b'/><circle cx='16' cy='16' r='7' fill='%23ff4d1c'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- gradientes compartilhados pelas cenas -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#241f1b"/><stop offset=".55" stop-color="#4a3526"/><stop offset=".68" stop-color="#8a5231"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#movimentos">Pular para os movimentos</a>
+
+  <header class="top">
+    <a class="brand" href="#">
+      <span class="dot"></span>
+      <span><b>Câmera<em>&amp;</em>Luz</b><small>por <span data-cfg="nome"></span></small></span>
+    </a>
+    <nav>
+      <a href="#movimentos">Movimentos</a>
+      <a href="#tecnicas">Luz &amp; técnica</a>
+      <a href="#construtor">Construtor</a>
+      <a class="btn sm solid" data-wa href="#">Pedir orçamento</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker"><span class="live"></span>Biblioteca gratuita · em português</p>
+        <h1>Dirija a câmera.<br/><em>Desenhe</em> a luz.</h1>
+        <p class="lede">46 movimentos de câmera e 33 técnicas de fotografia publicitária e editorial, cada um com um prompt pronto para
+          <b>Kling, Runway, Higgsfield, Seedance, Veo</b> e <b>Midjourney</b>. Feito por quem fotografa campanha no set, todos os dias.</p>
+        <div class="hero-cta">
+          <a class="btn solid" href="#movimentos">Ver os movimentos</a>
+          <a class="btn ghost" href="#construtor">Montar meu prompt →</a>
+        </div>
+        <dl class="stats">
+          <div><dt id="statMoves">46</dt><dd>movimentos</dd></div>
+          <div><dt id="statTechs">33</dt><dd>técnicas</dd></div>
+          <div><dt>1</dt><dd>construtor</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-viewer">
+        <div class="viewer-top"><span><b id="heroNum">01</b> / 12</span><span id="tc">00:00:00:00</span><span>ISO 400 · 1/50 · f/2.8</span></div>
+        <div id="heroStage" class="hero-stage"></div>
+        <div class="viewer-bot">
+          <div><small id="heroCat">Dolly / Tracking</small><strong id="heroName">Dolly in</strong></div>
+          <span class="viewer-hint">cada card mostra o movimento em ação</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" id="ticker" aria-hidden="true"></div>
+
+    <!-- MOVIMENTOS -->
+    <section id="movimentos" class="sec reveal">
+      <header class="sec-head">
+        <span class="num">01</span>
+        <div>
+          <h2>Movimentos de <em>câmera</em></h2>
+          <p>Cada prompt separa <b>o movimento</b> da <b>cena</b>. Você troca a imagem inicial e o movimento continua funcionando. Os prompts estão em inglês porque é assim que as IAs de vídeo respondem melhor.</p>
+        </div>
+      </header>
+      <div class="toolbar">
+        <div class="chips" id="moveFilters"></div>
+        <label class="search">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+          <input id="moveSearch" type="search" placeholder="Buscar: órbita, drone, zoom…" aria-label="Buscar movimento" />
+          <span id="moveCount"></span>
+        </label>
+      </div>
+      <div class="mgrid" id="moveGrid"></div>
+    </section>
+
+    <!-- TÉCNICAS -->
+    <section id="tecnicas" class="sec reveal">
+      <header class="sec-head">
+        <span class="num">02</span>
+        <div>
+          <h2>Luz &amp; <em>técnica</em> de estúdio</h2>
+          <p>As montagens de luz e os enquadramentos mais usados em campanhas, catálogos e editoriais de revista. Cada card tem o esquema visto de cima, uma esfera de teste mostrando como a luz cai, o passo a passo para o set e o prompt para a IA.</p>
+        </div>
+      </header>
+      <div class="tabs" id="techTabs" role="tablist"></div>
+      <div class="tgrid" id="techGrid"></div>
+    </section>
+
+    <!-- CONSTRUTOR -->
+    <section id="construtor" class="sec reveal">
+      <header class="sec-head">
+        <span class="num">03</span>
+        <div>
+          <h2>Construtor de <em>prompt</em></h2>
+          <p>Escolha o movimento, a luz e o enquadramento. Depois descreva só o que falta na cena. O resultado sai organizado e pronto para colar.</p>
+        </div>
+      </header>
+
+      <div class="builder" id="builder">
+        <form class="bform" onsubmit="return false">
+          <div class="seg" role="group" aria-label="Tipo de prompt">
+            <button type="button" class="act" data-mode="video">Vídeo</button>
+            <button type="button" data-mode="foto">Foto</button>
+          </div>
+
+          <label id="bMoveRow"><span>Movimento de câmera</span><select id="bMove"></select></label>
+          <div class="row2">
+            <label><span>Técnica de luz</span><select id="bLight"></select></label>
+            <label><span>Composição</span><select id="bComp"></select></label>
+          </div>
+          <label><span>Assunto / produto</span><input id="bSubj" placeholder="ex.: a luxury perfume bottle" /></label>
+          <label><span>Local / cenário</span><input id="bLoc" placeholder="ex.: on a wet black stone surface" /></label>
+          <label><span>Ação na cena</span><input id="bAct" placeholder="ex.: a droplet slides down the glass" /></label>
+          <label><span>Mood / estilo</span><input id="bMood" placeholder="ex.: dark, sensual, high-end" /></label>
+          <fieldset class="ar">
+            <legend>Formato</legend>
+            <label><input type="radio" name="ar" value="16:9" checked /><span>16:9</span></label>
+            <label><input type="radio" name="ar" value="9:16" /><span>9:16</span></label>
+            <label><input type="radio" name="ar" value="4:5" /><span>4:5</span></label>
+            <label><input type="radio" name="ar" value="1:1" /><span>1:1</span></label>
+          </fieldset>
+          <p class="hint">Escreva os campos em inglês para melhores resultados. Deixe em branco o que não importa.</p>
+        </form>
+
+        <div class="bout">
+          <div id="bPreview" class="bpreview"></div>
+          <div class="bout-card">
+            <div class="bout-head"><span class="rec-dot"></span><span id="bLabel">Prompt</span></div>
+            <pre id="bOut" aria-live="polite"></pre>
+            <div class="actions">
+              <button class="btn solid" id="bCopy" type="button">Copiar prompt</button>
+              <button class="btn ghost" id="bRandom" type="button">Surpreenda-me</button>
+              <button class="btn ghost" id="bClear" type="button">Limpar</button>
+            </div>
+            <a class="bquote" id="bQuote" data-wa href="#" target="_blank" rel="noopener">
+              Prefere o resultado real, sem IA? <b>Envie esta referência e peça um orçamento →</b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORÇAMENTO -->
+    <section id="orcamento" class="sec cta reveal">
+      <div class="cta-in">
+        <span class="num">04</span>
+        <h2>A IA faz o rascunho.<br/><em>O set</em> faz a campanha.</h2>
+        <p class="lede">Produção de fotografia e vídeo publicitário para marcas que precisam de imagem com cara de anúncio: produto, moda, gastronomia e beleza. Você chega com a referência e sai com o material pronto para veicular.</p>
+        <ul class="services">
+          <li><b>Still de produto</b><span>E-commerce, hero shots, splash, bebidas e cosméticos.</span></li>
+          <li><b>Editorial &amp; campanha</b><span>Moda, retrato de marca, lookbook e beleza.</span></li>
+          <li><b>Vídeo curto</b><span>Reels e anúncios com movimento de câmera real, com motion control e slider.</span></li>
+          <li><b>Foto + IA</b><span>Suas fotos de campanha animadas em vídeo com IA, com direção de arte.</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn solid big" data-wa href="#" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+          <a class="btn ghost big" data-ig href="#" target="_blank" rel="noopener">Ver portfólio no Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div><b>Câmera<em>&amp;</em>Luz</b> — <span data-cfg="nome"></span> · <span data-cfg="cidade"></span></div>
+    <div><a data-mail href="#"><span data-cfg="email"></span></a> · <a data-ig href="#" target="_blank" rel="noopener">Instagram</a> · © <span id="year"></span></div>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
