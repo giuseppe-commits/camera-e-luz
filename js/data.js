@@ -4,8 +4,8 @@
 const CONFIG = {
   nome: "Giuseppe Lira",
   estudio: "Estúdio",
-  cidade: "São Paulo · SP",
-  whatsapp: "5511999999999", // DDI + DDD + número, só dígitos
+  cidade: "Fortaleza · CE",
+  whatsapp: "5585988452805", // DDI + DDD + número, só dígitos
   instagram: "seuperfil",
   email: "contato@seudominio.com.br",
 };
