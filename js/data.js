@@ -2,7 +2,7 @@
    CONFIGURAÇÃO — edite aqui seus dados de contato
    ========================================================= */
 const CONFIG = {
-  nome: "Seu Nome",
+  nome: "Giuseppe Lira",
   estudio: "Estúdio",
   cidade: "São Paulo · SP",
   whatsapp: "5511999999999", // DDI + DDD + número, só dígitos
